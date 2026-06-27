@@ -3,16 +3,27 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    // Default to 'hacker' mode (isProfessionalMode = false)
-    const [isProMode, setIsProMode] = useState(false);
+    // Default to 'professional' mode (isProMode = true)
+    const [isProMode, setIsProMode] = useState(true);
 
     // Load preference from local storage on mount
     useEffect(() => {
         const savedMode = localStorage.getItem('ns_portfolio_mode');
-        if (savedMode === 'professional') {
+        if (savedMode === 'hacker') {
+            setIsProMode(false);
+        } else {
             setIsProMode(true);
         }
     }, []);
+
+    // Sync dark class on document element
+    useEffect(() => {
+        if (isProMode) {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+    }, [isProMode]);
 
     const toggleMode = () => {
         setIsProMode((prev) => {

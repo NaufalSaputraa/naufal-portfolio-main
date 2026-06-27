@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import {
     SiFlutter, SiFirebase, SiReact, SiCloudflare, SiPython,
-    SiKalilinux, SiMysql, SiDocker,
-    SiNextdotjs, SiSupabase, SiTailwindcss, SiVercel, SiGit
+    SiMysql, SiNextdotjs, SiSupabase, SiTailwindcss, SiVercel, SiGit,
+    SiKotlin, SiAndroid, SiTypescript, SiExpo, SiRust
 } from "react-icons/si";
-import FloatingShapes from './3d/FloatingShapes';
+import { FaJava } from "react-icons/fa";
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { useState, useEffect } from 'react';
+const FloatingShapes = lazy(() => import('./3d/FloatingShapes'));
 
 const Skills = () => {
     const { isProMode } = useTheme();
@@ -23,8 +24,15 @@ const Skills = () => {
 
     const skills = [
         { name: 'Flutter', color: 'text-cyan-400', icon: SiFlutter },
+        { name: 'React Native', color: 'text-cyan-500', icon: SiReact },
+        { name: 'Expo', color: 'text-white', icon: SiExpo },
+        { name: 'Kotlin', color: 'text-purple-500', icon: SiKotlin },
+        { name: 'Android', color: 'text-green-500', icon: SiAndroid },
         { name: 'React', color: 'text-cyan-300', icon: SiReact },
         { name: 'Next.js', color: 'text-white', icon: SiNextdotjs },
+        { name: 'TypeScript', color: 'text-blue-400', icon: SiTypescript },
+        { name: 'Java', color: 'text-red-500', icon: FaJava },
+        { name: 'Rust', color: 'text-orange-600', icon: SiRust },
         { name: 'Tailwind', color: 'text-teal-400', icon: SiTailwindcss },
         { name: 'Firebase', color: 'text-yellow-500', icon: SiFirebase },
         { name: 'Supabase', color: 'text-emerald-400', icon: SiSupabase },
@@ -32,9 +40,7 @@ const Skills = () => {
         { name: 'Python', color: 'text-yellow-300', icon: SiPython },
         { name: 'Cloudflare', color: 'text-orange-500', icon: SiCloudflare },
         { name: 'Vercel', color: 'text-white', icon: SiVercel },
-        { name: 'Docker', color: 'text-blue-500', icon: SiDocker },
-        { name: 'Git', color: 'text-orange-600', icon: SiGit },
-        { name: 'Kali Linux', color: 'text-indigo-500', icon: SiKalilinux }
+        { name: 'Git', color: 'text-orange-600', icon: SiGit }
     ];
 
     const container = {
@@ -57,7 +63,9 @@ const Skills = () => {
             {/* 3D Background - Hacker Mode & Desktop Only */}
             {!isProMode && isDesktop && (
                 <div className="absolute -top-20 -right-20 w-[400px] h-[400px] z-0 opacity-50 pointer-events-none">
-                    <FloatingShapes />
+                    <Suspense fallback={null}>
+                        <FloatingShapes />
+                    </Suspense>
                 </div>
             )}
 
@@ -66,9 +74,9 @@ const Skills = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className={`text-xl font-bold mb-8 flex items-center gap-3 relative z-10 ${isProMode ? 'text-slate-800' : 'text-slate-200'}`}
+                className={`text-xl font-semibold mb-8 flex items-center gap-3 relative z-10 ${isProMode ? 'text-text-dominant' : 'text-slate-200'}`}
             >
-                <span className={`w-8 h-[1px] ${isProMode ? 'bg-slate-400' : 'bg-slate-600'}`}></span>
+                <span className={`w-8 h-[1px] ${isProMode ? 'bg-slate-300' : 'bg-slate-700'}`}></span>
                 Tech Stack & Tools
             </motion.h2>
 
@@ -83,12 +91,12 @@ const Skills = () => {
                     <motion.div
                         key={skill.name}
                         variants={item}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors cursor-default border ${isProMode
-                            ? 'bg-white text-slate-700 border-slate-200 shadow-sm hover:shadow-md'
-                            : 'glass-panel text-slate-300 hover:bg-white/10 hover:text-white border-white/5'
+                        className={`flex items-center gap-2 px-3.5 py-1.5 rounded-none transition-colors duration-300 cursor-default border ${isProMode
+                            ? 'bg-transparent text-text-secondary border-slate-200/80 hover:border-primary hover:text-text-dominant'
+                            : 'bg-transparent text-slate-400 border-white/10 hover:border-primary hover:text-white'
                             }`}
                     >
-                        <div className={`w-5 h-5 flex items-center justify-center ${isProMode ? 'text-slate-600' : skill.color}`}>
+                        <div className={`w-5 h-5 flex items-center justify-center ${isProMode ? 'text-text-secondary' : skill.color}`}>
                             <skill.icon size={18} />
                         </div>
                         <span className="text-sm font-medium">{skill.name}</span>

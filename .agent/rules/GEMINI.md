@@ -2,7 +2,7 @@
 trigger: always_on
 ---
 
-# GEMINI.md - Antigravity Kit
+# GEMINI.md - AG Kit
 
 > This file defines how the AI behaves in this workspace.
 
@@ -111,6 +111,21 @@ When user's prompt is NOT in English:
 - **Testing**: Mandatory. Pyramid (Unit > Int > E2E) + AAA Pattern.
 - **Performance**: Measure first. Adhere to 2025 standards (Core Web Vitals).
 - **Infra/Safety**: 5-Phase Deployment. Verify secrets security.
+- **Token Economy**: Mandatory use of `@[skills/rtk]` and `@[skills/caveman]` to minimize token usage.
+
+### 📦 CORE FUNCTIONAL STANDARDS
+
+- **Responsive UI**: Ensure applications are fully responsive and use **Tailwind CSS v4** patterns.
+- **Vite Optimization**: Follow Vite best practices for fast HMR and optimized builds.
+- **Modern React**: Use **React v19+** patterns, including Hooks and functional components.
+- **Design Excellence**: Prioritize premium aesthetics, smooth animations (**Framer Motion**), and clean typography.
+- **Style Preservation**: Prefer minimal diffs and preserve existing UI style unless a redesign is requested.
+
+### 🔒 SECURITY & SAFETY
+
+- **Environment Variables**: Always use `.env` for secrets; never hardcode API keys.
+- **Git Safety**: Avoid destructive git commands unless explicitly requested.
+- **Data Privacy**: Do not expose secrets or local private data in outputs.
 
 ### 📁 File Dependency Awareness
 
@@ -261,7 +276,7 @@ When user's prompt is NOT in English:
 ### Agents & Skills
 
 - **Masters**: `orchestrator`, `project-planner`, `security-auditor` (Cyber/Audit), `backend-specialist` (API/DB), `frontend-specialist` (UI/UX), `mobile-developer`, `debugger`, `game-developer`
-- **Key Skills**: `clean-code`, `brainstorming`, `app-builder`, `frontend-design`, `mobile-design`, `plan-writing`, `behavioral-modes`
+- **Key Skills**: `clean-code`, `brainstorming`, `app-builder`, `frontend-design`, `mobile-design`, `plan-writing`, `behavioral-modes`, `caveman`, `rtk`
 
 ### Key Scripts
 
@@ -271,3 +286,14 @@ When user's prompt is NOT in English:
 - **Test**: `playwright_runner.py`, `test_runner.py`
 
 ---
+
+## 🌍 GLOBAL USAGE (REFERENCE)
+
+To use this Antigravity Kit across multiple projects without duplicating files:
+
+1.  **Centralize**: Keep this folder at `d:\Coding\Portofolio`.
+2.  **Symlink**: Reference the `.agent` folder from your project root.
+    - **PowerShell (Admin)**: `New-Item -ItemType SymbolicLink -Path ".agent" -Target "d:\Coding\Portofolio\.agent"`
+    - **CMD (Admin)**: `mklink /D .agent "d:\Coding\Portofolio\.agent"`
+
+This ensures all projects benefit from updates to `rtk`, `caveman`, and the global `GEMINI.md` standards instantly.

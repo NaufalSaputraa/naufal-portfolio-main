@@ -50,7 +50,7 @@ function App() {
   }, []);
 
   return (
-    <div className={`min-h-screen relative overflow-x-hidden transition-colors duration-500 ${isProMode ? 'bg-slate-200 text-slate-800' : 'bg-slate-950 text-white'}`}>
+    <div className={`min-h-screen relative overflow-x-hidden transition-colors duration-500 ${isProMode ? 'bg-background-light text-text-dominant' : 'bg-background-dark text-white'}`}>
       <SEO />
 
       <CyberCursor />

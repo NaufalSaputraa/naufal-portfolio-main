@@ -4,20 +4,20 @@
 
 @layer base {
   body {
-    @apply bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-white relative;
+    @apply bg-background-light dark:bg-background-dark text-text-dominant dark:text-slate-100 min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-white relative font-sans;
   }
 }
 
 .glass-panel {
-  @apply bg-[#161b22]/40 backdrop-blur-xl border border-white/10;
+  @apply bg-white/80 dark:bg-[#1c1c1e]/80 backdrop-blur-xl border border-slate-200/60 dark:border-white/5;
 }
 
 .text-gradient {
-  @apply bg-gradient-to-br from-blue-400 to-purple-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-br from-primary to-cyan-400 bg-clip-text text-transparent;
 }
 
 .text-gradient-primary {
-  @apply bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent;
+  @apply bg-gradient-to-br from-primary to-cyan-500 bg-clip-text text-transparent;
 }
 
 /* Glitch Effect */
@@ -50,7 +50,7 @@
 }
 
 .glitch::after {
-  color: #8b5cf6;
+  color: #10b981;
   z-index: -2;
   animation: glitch-anim-2 3s infinite linear alternate-reverse;
 }

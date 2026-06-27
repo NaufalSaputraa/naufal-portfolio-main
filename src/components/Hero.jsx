@@ -29,7 +29,7 @@ const Hero = ({ triggerHack }) => {
             },
         },
         particles: {
-            color: { value: ["#06b6d4", "#8b5cf6"] },
+            color: { value: ["#0071E3", "#06b6d4", "#10b981"] },
             links: {
                 color: "#ffffff",
                 distance: 150,
@@ -102,7 +102,7 @@ const Hero = ({ triggerHack }) => {
                             "Naufal Saputra"
                         ) : (
                             <span className="glitch-wrapper">
-                                <span className="glitch text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500" data-text="Naufal Saputra">
+                                <span className="glitch text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500" data-text="Naufal Saputra">
                                     Naufal Saputra
                                 </span>
                             </span>
@@ -145,7 +145,7 @@ const Hero = ({ triggerHack }) => {
                             {/* Hacker Buttons */}
                             <div className="flex flex-wrap items-center justify-center gap-4">
                                 <MagneticButton className="group relative flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold transition-all border border-cyan-500/30 hover:border-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:shadow-[0_0_35px_rgba(6,182,212,0.4)] overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 to-violet-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <a href="#projects" className="relative flex items-center gap-2 z-10">
                                         <span className="text-cyan-400 group-hover:text-white transition-colors">Initialize Projects</span>
                                         <ArrowRight size={18} className="text-cyan-400 group-hover:text-white transition-colors group-hover:translate-x-1" />
@@ -154,7 +154,7 @@ const Hero = ({ triggerHack }) => {
 
                                 <div className="flex gap-4">
                                     <MagneticButton>
-                                        <a href="https://github.com/naansa-naufalsaputra" target="_blank" className="w-14 h-14 flex items-center justify-center rounded-full glass-panel hover:bg-white/10 text-slate-300 hover:text-white transition-all border border-white/10 hover:border-white/30">
+                                        <a href="https://github.com/NaufalSaputraa" target="_blank" className="w-14 h-14 flex items-center justify-center rounded-full glass-panel hover:bg-white/10 text-slate-300 hover:text-white transition-all border border-white/10 hover:border-white/30">
                                             <Github size={24} />
                                         </a>
                                     </MagneticButton>

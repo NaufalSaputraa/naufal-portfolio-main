@@ -6,27 +6,26 @@ import { useTheme } from '../context/ThemeContext';
 const projects = [
     {
         id: 1,
-        title: "Nebulla",
-        description: "A hybrid AI workspace bridging digital ink and structured notes, powered by Gemini 2.0.",
-        fullDescription: "Nebulla bridges the gap between hand-written notes and structured documents. It uses Google Gemini 3.0 to understand context, assist with research, and solve math equations directly from your handwriting.",
-        tech: ["React 19", "TypeScript", "Vite", "Tailwind", "Gemini 3.0"],
-        image: "/projects/nebulla.png",
-        link: "https://nebulla.naufalsaputra.dev/",
-        github: "https://github.com/naansa-naufalsaputra/nebulla-app",
-        status: "Beta"
+        title: "Kotatsu-Redo",
+        description: "Manga reader for Android.",
+        fullDescription: "Kotatsu-Redo is a manga reader application for Android, allowing users to read and organize their favorite manga directly on their mobile device.",
+        tech: ["Kotlin", "Android", "Jetpack Compose"],
+        image: "/projects/kotatsu.png",
+        link: "#",
+        github: "https://github.com/NaufalSaputraa/Kotatsu-Redo",
+        status: "Active"
     },
     {
         id: 2,
         title: "DuaSaku",
-        description: "A comprehensive personal finance manager built with Next.js PWA. Track expenses, manage budgets, and visualize savings goals.",
-        fullDescription: "DuaSaku is designed to solve the complexity of financial tracking for students. It features local-first storage, interactive charts, and export to CSV functionality. Built with modern web technologies for performance.",
-        tech: ["Next.js", "Tailwind", "Zustand", "Firebase"],
+        description: "A personal finance manager built with Flutter to track expenses and manage budgets.",
+        fullDescription: "DuaSaku is a comprehensive personal finance manager built with Flutter and Dart, utilizing Clean Architecture patterns to help users manage their money, budgets, and savings goals.",
+        tech: ["Flutter", "Dart", "Clean Architecture", "State Management"],
         image: "/projects/duasaku.png",
-        link: "https://duasaku.naufalsaputra.dev/",
-        github: "https://github.com/naansa-naufalsaputra/duasaku-pwa",
-        status: "Live"
-    },
-
+        link: "#",
+        github: "https://github.com/NaufalSaputraa/DuaSaku",
+        status: "Active"
+    }
 ];
 
 const Projects = () => {
@@ -35,33 +34,33 @@ const Projects = () => {
 
     return (
         <section id="projects" className="py-20 px-6 max-w-7xl mx-auto min-h-screen">
-            <h2 className={`text-4xl font-black mb-12 flex items-center gap-3 ${isProMode ? 'text-slate-900' : 'text-white'}`}>
-                <Code2 className={isProMode ? "text-cyan-600" : "text-cyan-400"} /> Selected Projects
+            <h2 className={`text-4xl font-semibold mb-12 flex items-center gap-3 ${isProMode ? 'text-text-dominant' : 'text-white'}`}>
+                <Code2 className="text-primary" /> Selected Projects
             </h2>
 
             {/* Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project) => (
                     <motion.div
-                        layoutId={project.id} // Kunci animasi 1
+                        layoutId={project.id}
                         key={project.id}
                         onClick={() => setSelectedId(project.id)}
-                        className={`group relative rounded-2xl overflow-hidden border cursor-pointer shadow-xl transition-colors ${isProMode
-                            ? 'bg-white border-slate-200 hover:shadow-2xl hover:border-slate-300'
-                            : 'bg-slate-900 border-slate-800 hover:shadow-cyan-500/20 hover:border-cyan-500/50'
+                        className={`group relative rounded-none overflow-hidden border cursor-pointer transition-colors duration-300 ${isProMode
+                            ? 'bg-white border-surface-light hover:border-primary'
+                            : 'bg-[#1c1c1e] border-white/5 hover:border-primary'
                             }`}
                         whileHover={{ y: -5 }}
                     >
                         {/* Image Preview */}
                         <div className="h-48 overflow-hidden relative">
-                            <div className={`absolute inset-0 z-10 transition-all ${isProMode ? 'bg-black/5 group-hover:bg-transparent' : 'bg-slate-900/10 group-hover:bg-transparent'}`} />
+                            <div className={`absolute inset-0 z-10 transition-all ${isProMode ? 'bg-black/5 group-hover:bg-transparent' : 'bg-black/20 group-hover:bg-transparent'}`} />
                             <motion.img
                                 src={project.image}
                                 alt={project.title}
                                 className="w-full h-full object-cover"
                             />
                             <div className="absolute top-3 right-3 z-20">
-                                <span className="px-3 py-1 rounded-full text-xs font-bold bg-black/50 backdrop-blur-md border border-white/10 text-white">
+                                <span className="px-3 py-1 rounded-none text-xs font-semibold bg-black/75 backdrop-blur-md border border-white/10 text-white">
                                     {project.status}
                                 </span>
                             </div>
@@ -69,9 +68,9 @@ const Projects = () => {
 
                         {/* Content Preview */}
                         <div className="p-6">
-                            <motion.h3 className={`text-xl font-bold mb-2 ${isProMode ? 'text-slate-900' : 'text-white'}`}>{project.title}</motion.h3>
-                            <p className={`text-sm line-clamp-2 ${isProMode ? 'text-slate-600' : 'text-slate-400'}`}>{project.description}</p>
-                            <div className={`mt-4 text-xs font-medium uppercase tracking-wider ${isProMode ? 'text-cyan-600' : 'text-cyan-400'}`}>
+                            <motion.h3 className={`text-xl font-semibold mb-2 ${isProMode ? 'text-text-dominant' : 'text-white'}`}>{project.title}</motion.h3>
+                            <p className={`text-sm line-clamp-2 ${isProMode ? 'text-text-secondary' : 'text-slate-400'}`}>{project.description}</p>
+                            <div className="mt-4 text-xs font-semibold uppercase tracking-wider text-primary">
                                 Click to expand
                             </div>
                         </div>
@@ -95,10 +94,10 @@ const Projects = () => {
                         {/* Modal Card */}
                         <div className="fixed inset-0 flex items-center justify-center z-50 p-4 pointer-events-none">
                             <motion.div
-                                layoutId={selectedId} // Kunci animasi 2 (Harus sama dengan card)
-                                className={`w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl pointer-events-auto relative ${isProMode
+                                layoutId={selectedId}
+                                className={`w-full max-w-2xl rounded-none overflow-hidden shadow-2xl pointer-events-auto relative ${isProMode
                                     ? 'bg-white border border-slate-200'
-                                    : 'bg-slate-900 border border-slate-700'
+                                    : 'bg-[#1c1c1e] border border-white/10'
                                     }`}
                             >
                                 {/* Tombol Close */}
@@ -125,35 +124,41 @@ const Projects = () => {
 
                                             {/* Modal Content */}
                                             <div className="p-8">
-                                                <motion.h3 className={`text-3xl font-black mb-2 ${isProMode ? 'text-slate-900' : 'text-white'}`}>
+                                                <motion.h3 className={`text-3xl font-semibold mb-2 ${isProMode ? 'text-text-dominant' : 'text-white'}`}>
                                                     {project.title}
                                                 </motion.h3>
 
                                                 <div className="flex flex-wrap gap-2 mb-6">
                                                     {project.tech.map((t, i) => (
-                                                        <span key={i} className={`px-3 py-1 rounded-full text-sm border ${isProMode
-                                                            ? 'bg-slate-100 text-slate-700 border-slate-200'
-                                                            : 'bg-cyan-900/30 text-cyan-400 border-cyan-500/30'
+                                                        <span key={i} className={`px-3 py-1 rounded-none text-xs border ${isProMode
+                                                            ? 'bg-slate-100 text-text-secondary border-slate-200'
+                                                            : 'bg-transparent text-slate-300 border-white/10'
                                                             }`}>
                                                             {t}
                                                         </span>
                                                     ))}
                                                 </div>
 
-                                                <p className={`leading-relaxed mb-8 text-lg ${isProMode ? 'text-slate-600' : 'text-slate-300'}`}>
+                                                <p className={`leading-relaxed mb-8 text-base ${isProMode ? 'text-text-secondary' : 'text-slate-300'}`}>
                                                     {project.fullDescription || project.description}
                                                 </p>
 
                                                 {/* Action Buttons */}
-                                                <div className="flex gap-4">
-                                                    {project.link !== '#' && (
-                                                        <a href={project.link} target="_blank" className="flex-1 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
-                                                            <ExternalLink size={20} /> Visit Site
+                                                <div className="flex gap-4 w-full">
+                                                    {project.link !== '#' ? (
+                                                        <>
+                                                            <a href={project.link} target="_blank" className="flex-1 py-2.5 bg-primary hover:bg-primary-hover active:bg-primary-press text-white font-medium rounded-full flex items-center justify-center gap-2 transition-all">
+                                                                <ExternalLink size={18} /> Visit Site
+                                                            </a>
+                                                            <a href={project.github} target="_blank" className="flex-1 py-2.5 bg-transparent border-2 border-primary text-primary hover:bg-primary/5 font-medium rounded-full flex items-center justify-center gap-2 transition-colors">
+                                                                <Github size={18} /> Source Code
+                                                            </a>
+                                                        </>
+                                                    ) : (
+                                                        <a href={project.github} target="_blank" className="w-full py-2.5 bg-primary hover:bg-primary-hover active:bg-primary-press text-white font-medium rounded-full flex items-center justify-center gap-2 transition-all">
+                                                            <Github size={18} /> Source Code
                                                         </a>
                                                     )}
-                                                    <a href={project.github} target="_blank" className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors border border-slate-600">
-                                                        <Github size={20} /> Source Code
-                                                    </a>
                                                 </div>
                                             </div>
                                         </div>

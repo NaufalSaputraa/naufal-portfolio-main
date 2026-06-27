@@ -50,7 +50,7 @@ SEO.defaultProps = {
     keywords: 'Naufal Saputra, Mobile Engineer, Cloud Engineer, Cyber Security, React, Portfolio',
     name: 'Naufal Saputra',
     type: 'website',
-    image: 'https://github.com/naansa-naufalsaputra.png', // Fallback to GitHub avatar
+    image: 'https://github.com/NaufalSaputraa.png', // Fallback to GitHub avatar
     url: typeof window !== 'undefined' ? window.location.href : '',
 };
 

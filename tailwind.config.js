@@ -8,18 +8,24 @@ export default {
     theme: {
         extend: {
             colors: {
-                "primary": "#1337ec",
-                "secondary": "#7c3aed",
-                "background-light": "#f6f6f8",
-                "background-dark": "#0d1117",
-                "surface-dark": "#161b22",
+                "primary": "#0071E3",
+                "primary-hover": "#006EDB",
+                "primary-press": "#0076DF",
+                "secondary": "#0071E3",
+                "background-light": "#f7f7f7",
+                "background-dark": "#18181A",
+                "surface-dark": "#272729",
+                "text-dominant": "#1D1D1F",
+                "text-secondary": "#333336",
+                "text-tertiary": "#6E6E73",
+                "surface-light": "#EDEDF2",
             },
             fontFamily: {
-                "display": ["Inter", "sans-serif"],
-                "sans": ["Inter", "sans-serif"],
+                "display": ["Space Grotesk", "Inter", "sans-serif"],
+                "sans": ["Archivo", "Inter", "sans-serif"],
             },
             backgroundImage: {
-                'glow-gradient': 'radial-gradient(circle at center, rgba(19, 55, 236, 0.15) 0%, rgba(13, 17, 23, 0) 70%)',
+                'glow-gradient': 'radial-gradient(circle at center, rgba(0, 113, 227, 0.15) 0%, rgba(24, 24, 26, 0) 70%)',
                 'card-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
             }
         },

@@ -34,9 +34,9 @@ const Navbar = () => {
             transition={{ duration: 0.35, ease: "easeInOut" }}
             className="fixed top-6 left-0 right-0 z-[9999] flex justify-center px-4 pointer-events-none"
         >
-            <nav className={`rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl pointer-events-auto relative transition-all duration-500 ${isProMode ? 'bg-white/80 text-slate-900 border border-slate-200 shadow-slate-200/50 backdrop-blur-md' : 'glass-panel shadow-black/20'}`}>
+            <nav className={`rounded-full px-6 py-2.5 flex items-center justify-between gap-8 shadow-xl pointer-events-auto relative transition-all duration-500 ${isProMode ? 'bg-white/90 text-text-dominant border border-slate-200/80 shadow-slate-200/30 backdrop-blur-md' : 'glass-panel shadow-black/20'}`}>
                 <a href="#" className="flex items-center gap-2 group">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs group-hover:scale-105 transition-transform duration-300 ${isProMode ? 'bg-slate-900 text-white' : 'bg-gradient-to-br from-primary to-secondary text-white'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs group-hover:scale-105 transition-transform duration-300 ${isProMode ? 'bg-text-dominant text-white' : 'bg-primary text-white'}`}>
                         NS
                     </div>
                 </a>
@@ -48,7 +48,7 @@ const Navbar = () => {
                             key={link.name}
                             href={link.href}
                             className={`px-4 py-2 text-sm font-medium transition-colors rounded-full ${isProMode
-                                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                                    ? 'text-text-secondary hover:text-primary hover:bg-slate-100'
                                     : 'text-slate-400 hover:text-white hover:bg-white/5'
                                 }`}
                         >
@@ -60,7 +60,7 @@ const Navbar = () => {
                 <a
                     href="#contact"
                     className={`hidden md:flex text-sm font-medium px-5 py-2 rounded-full transition-all items-center gap-2 ${isProMode
-                            ? 'bg-slate-900 text-white hover:bg-slate-800'
+                            ? 'bg-primary text-white hover:bg-primary-hover active:bg-primary-press'
                             : 'bg-white/10 hover:bg-white/20 text-white border border-white/5'
                         }`}
                 >
@@ -108,7 +108,7 @@ const Navbar = () => {
                                 href="#contact"
                                 onClick={() => setIsOpen(false)}
                                 className={`px-4 py-2 text-sm font-medium rounded-xl transition-colors flex items-center gap-2 ${isProMode
-                                        ? 'text-slate-900 hover:bg-slate-100'
+                                        ? 'text-text-dominant hover:text-primary hover:bg-slate-100'
                                         : 'text-primary hover:text-white hover:bg-primary/20'
                                     }`}
                             >

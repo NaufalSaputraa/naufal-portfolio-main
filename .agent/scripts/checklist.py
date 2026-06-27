@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Master Checklist Runner - Antigravity Kit
+Master Checklist Runner - AG Kit
 ==========================================
 
 Orchestrates all validation scripts in priority order.
@@ -25,6 +25,18 @@ import subprocess
 import argparse
 from pathlib import Path
 from typing import List, Tuple, Optional
+
+# Reconfigure stdout/stderr to support UTF-8 on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+if hasattr(sys.stderr, 'reconfigure'):
+    try:
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 
 # ANSI colors for terminal output
 class Colors:
@@ -161,7 +173,7 @@ def print_summary(results: List[dict]):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Run Antigravity Kit validation checklist",
+        description="Run AG Kit validation checklist",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

@@ -84,7 +84,7 @@ const InteractiveTerminal = ({ onHack }) => {
                 response = 'Naufal Saputra. Informatics Student Semester 4 @ UNNES. Cyber Security enthusiast.';
                 break;
             case 'contact':
-                response = 'Email: naufalnamikaze175@gmail.com\nLinkedIn: https://www.linkedin.com/in/naufalanwarsaputra\nGitHub: github.com/naansa-naufalsaputra\nInstagram: https://www.instagram.com/naansa_';
+                response = 'Email: naufalnamikaze175@gmail.com\nLinkedIn: https://www.linkedin.com/in/naufalanwarsaputra\nGitHub: github.com/NaufalSaputraa\nInstagram: https://www.instagram.com/naansa_';
                 break;
             case 'projects':
                 response = 'Check out the "Selected Projects" section below to see my work on DuaSaku';
